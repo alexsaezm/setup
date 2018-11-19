@@ -1,0 +1,58 @@
+#!/usr/bin/env ansible-playbook
+# vi: set ft=yaml :
+
+# This is a work in progress that suits my needs.
+# Use at your own risk.
+
+---
+- hosts: all
+  gather_facts: True
+
+  vars:
+    osx_brew_packages:
+      - ansible
+      - cmake
+      - dep
+      - go
+      - nmap
+      - pandoc
+      - sqlite
+      - terraform
+      - tmux
+      - wget
+
+    osx_cask_packages:
+      - android-studio
+      - clion
+      - docker
+      - eclipse-ide
+      - goland
+      - google-chrome
+      - insomnia
+      - intellij-idea
+      - macvim
+      - pycharm
+      - transmission
+      - vagrant
+      - virtualbox
+      - virtualbox-extension-pac
+
+
+  tasks:
+    - name: 'Update Homebrew'
+      homebrew:
+        update_homebrew: True
+      
+    - name: 'Ensure Homebrew packages are installed'
+      homebrew:
+        name: '{{ packages }}'
+        state: latest
+      vars:
+        packages: '{{ osx_brew_packages }}'
+
+    - name: 'Ensure Homebrew Cask packages are installed'
+      homebrew_cask:
+        name: '{{ packages }}'
+        state: latest
+      vars:
+        packages: '{{ osx_cask_packages }}'
