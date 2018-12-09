@@ -10,11 +10,12 @@
 
   vars:
     osx_brew_packages:
-      - irssi
       - ansible
       - cmake
       - dep
       - go
+      - irssi
+      - jq
       - nmap
       - pandoc
       - sqlite
@@ -25,7 +26,6 @@
     osx_cask_packages:
       - 1password
       - 1password-cli
-      - telegram-desktop
       - android-studio
       - clion
       - docker
@@ -34,11 +34,12 @@
       - google-chrome
       - insomnia
       - intellij-idea
+      - mactex-no-gui
       - macvim
       - pycharm
+      - skype
       - transmission
       - vagrant
-      - skype
       - virtualbox
       - virtualbox-extension-pac
 
