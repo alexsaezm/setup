@@ -1,64 +1,15 @@
 #!/usr/bin/env ansible-playbook
 # vi: set ft=yaml :
 
-# This is a work in progress that suits my needs.
-# Use at your own risk.
-
+# This is the main file of the project.
+# The whole project behaves as a role.
 ---
-- hosts: all
+- hosts: local
   gather_facts: True
 
-  vars:
-    osx_brew_packages:
-      - ansible
-      - cmake
-      - dep
-      - go
-      - irssi
-      - jq
-      - nmap
-      - pandoc
-      - sqlite
-      - terraform
-      - tmux
-      - wget
-
-    osx_cask_packages:
-      - 1password
-      - 1password-cli
-      - android-studio
-      - clion
-      - docker
-      - eclipse-ide
-      - goland
-      - google-chrome
-      - insomnia
-      - intellij-idea
-      - mactex-no-gui
-      - macvim
-      - pycharm
-      - skype
-      - transmission
-      - vagrant
-      - virtualbox
-      - virtualbox-extension-pac
-
+  vars_files:
+    - 'vars/{{ ansible_os_family }}/packages.yml'
 
   tasks:
-    - name: 'Update Homebrew'
-      homebrew:
-        update_homebrew: True
-      
-    - name: 'Ensure Homebrew packages are installed'
-      homebrew:
-        name: '{{ packages }}'
-        state: latest
-      vars:
-        packages: '{{ osx_brew_packages }}'
+    - include_tasks: 'tasks/{{ ansible_os_family }}/main.yml'
 
-    - name: 'Ensure Homebrew Cask packages are installed'
-      homebrew_cask:
-        name: '{{ packages }}'
-        state: latest
-      vars:
-        packages: '{{ osx_cask_packages }}'

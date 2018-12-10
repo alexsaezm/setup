@@ -1,0 +1,35 @@
+brew_packages:
+  - ansible
+  - cmake
+  - dep
+  - go
+  - irssi
+  - jq
+  - nmap
+  - pandoc
+  - sqlite
+  - terraform
+  - tmux
+  - wget
+
+cask_packages:
+  - 1password
+  - 1password-cli
+  - android-studio
+  - clion
+  - docker
+  - eclipse-ide
+  - goland
+  - google-chrome
+  - insomnia
+  - intellij-idea
+  - mactex-no-gui
+  - macvim
+  - pycharm
+  - skype
+  - transmission
+  - vagrant
+  - virtualbox
+  - virtualbox-extension-pac
+
+
