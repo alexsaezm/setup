@@ -1,15 +1,10 @@
 #!/usr/bin/env ansible-playbook
 # vi: set ft=yaml :
 
-# This is the main file of the project.
-# The whole project behaves as a role.
 ---
-- hosts: local
+- hosts: all
   gather_facts: True
 
-  vars_files:
-    - 'vars/{{ ansible_os_family }}/packages.yml'
-
-  tasks:
-    - include_tasks: 'tasks/{{ ansible_os_family }}/main.yml'
+  roles:
+    - workstation
 

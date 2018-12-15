@@ -5,14 +5,10 @@
 
 - name: 'Ensure Homebrew packages are installed'
   homebrew:
-    name: '{{ packages }}'
+    name: '{{ brew_packages }}'
     state: latest
-    vars:
-      packages: '{{ brew_packages }}'
 
 - name: 'Ensure Homebrew Cask packages are installed'
   homebrew_cask:
-    name: '{{ packages }}'
+    name: '{{ cask_packages }}'
     state: latest
-    vars:
-      packages: '{{ cask_packages }}'
