@@ -12,3 +12,7 @@
   homebrew_cask:
     name: '{{ cask_packages }}'
     state: latest
+
+
+- name: 'Install useful key bindings and fuzzy completion'
+  shell: $(brew --prefix)/opt/fzf/install --all
