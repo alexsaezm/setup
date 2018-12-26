@@ -1,0 +1,14 @@
+# Start windows and panes at 1, not 0
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Tmux fix for terminal colours
+set -g default-terminal "screen-256color"
+
+# Open new pane or window in the current directory
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
+
+# Avoid rename
+set -g allow-rename off
