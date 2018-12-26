@@ -6,5 +6,7 @@
     - '{{ ansible_os_family | lower }}.yml'
     - 'default.yml'
 
-- name: 'Include tasks based on the OS family'
-  include_tasks: '{{ ansible_os_family | lower }}.yml'
+- name: 'Ensure all packages are installed based on the OS family'
+  include_tasks: '{{ ansible_os_family | lower }}_packages.yml'
+
+- name: 'Ensure all of the '

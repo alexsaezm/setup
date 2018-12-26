@@ -2,10 +2,13 @@ brew_packages:
   - ansible
   - ansible-lint
   - awscli
+  - azure-cli
   - cmake
   - dep
   - fzf
   - go
+  - graphviz
+  - htop
   - irssi
   - jq
   - maven
@@ -24,6 +27,7 @@ cask_packages:
   - 1password
   - 1password-cli
   - android-studio
+  - anki
   - clion
   - docker
   - eclipse-ide
@@ -39,5 +43,4 @@ cask_packages:
   - vagrant
   - virtualbox
   - virtualbox-extension-pac
-
-
+  - visual-studio-code

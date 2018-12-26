@@ -1,0 +1,20 @@
+---
+- name: 'Ensure Vim is configured'
+  template:
+    src: 'templates/vim.j2'
+    dest: '{{ ansible_user_dir }}/.vimrc'
+    owner: '{{ ansible_user_id }}'
+    group: '{{ ansible_user_gid }}'
+    mode: 0644
+
+- name: 'Ensure Pathogen is installed'
+  debug:
+    msg: 'TODO'
+
+- name: 'Ensure Sensible plugin is installed'
+  debug:
+    msg: 'TODO'
+
+- name: 'Ensure Dracula theme is installed'
+  debug:
+    msg: 'TODO'
