@@ -1,10 +1,4 @@
 ---
-# - name: 'Load variables'
-#   include_vars: '{{ item }}'
-#   with_items:
-#     - '{{ ansible_distribution | lower }}.yml'
-#     - 'vim.yml'
-
 #- name: 'Ensure all packages are installed'
 #  include_tasks: 'packages_{{ ansible_os_family | lower }}.yml'
 
@@ -12,3 +6,5 @@
   include_tasks: 'configure_{{ item }}.yml'
   with_items:
     - 'vim'
+    - 'tmux'
+    - 'zsh'

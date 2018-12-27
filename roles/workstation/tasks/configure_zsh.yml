@@ -1,7 +1,7 @@
 ---
-# - name: 'Ensure Oh my zsh is installed'
-#   debug:
-#     msg: 'TODO'
+- name: 'Ensure Oh my zsh is installed'
+  debug:
+    msg: 'Ensure Oh my zsh is installed'
 
 # - name: 'Ensure ZSH is configured'
 #   template:

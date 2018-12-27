@@ -1,7 +1,7 @@
 ---
 - name: 'Ensure Vim is configured'
   template:
-    src: 'templates/vim.j2'
+    src: 'vim.j2'
     dest: '{{ ansible_user_dir }}/.vimrc'
     owner: '{{ ansible_user_id }}'
     group: '{{ ansible_user_gid }}'
@@ -32,9 +32,14 @@
     mode: 0755
 
 - name: 'Ensure Pathogen is installed'
-  debug:
-    msg: 'TODO'
+  get_url:
+    url: 'https://tpo.pe/pathogen.vim'
+    dest: '{{ vim_autoload_dir }}/pathogen.vim'
 
 - name: 'Ensure all the extensions are installed'
-  debug:
-    msg: 'TODO'
+  git:
+    repo: '{{ extension.url }}'
+    dest: '{{ extension.path }}'
+  with_items: '{{ vim_extensions }}'
+  loop_control:
+    loop_var: 'extension'
