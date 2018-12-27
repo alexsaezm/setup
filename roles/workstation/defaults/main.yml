@@ -1,2 +1,2 @@
 ---
-# defaults file for workstation
+vim_config_path: '{{ ansible_user_dir }}/.vim'
