@@ -1,7 +1,7 @@
 Role Name
 =========
 
-I use this role to set up all my workstations.
+This is how I configure my machines.
 
 Requirements
 ------------

@@ -1,6 +1,6 @@
 galaxy_info:
   author: Álex Sáez 
-  description: This is how I set up all of my devices
+  description: This is how I configure my machines
   license: GPLv3
   min_ansible_version: 2.7
 
