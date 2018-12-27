@@ -1,0 +1,25 @@
+# Exports
+export ZSH="{{ ansible_user_dir }}/.oh-my-zsh"
+export GOPATH="{{ gopath }}"
+export PYPATH2="{{ pypath2 }}"
+export PYPATH3="{{ pypath3 }}"
+export PATH="$GOPATH/bin:$PYPATH3/bin:$PYPATH2/bin:$PATH"
+export EDITOR="{{ editor }}"
+export LANG={{ lang }}
+
+# Personalizations
+ZSH_THEME="{{ zsh_theme }}"
+HIST_STAMPS="{{ time_format }}"
+plugins=(
+{% for plugin in ohmyzsh_plugins %}
+  {{ plugin }}
+{% endfor %}
+)
+source $ZSH/oh-my-zsh.sh
+
+# Alias
+{% for alias in aliases %}
+alias {{ alias.name }}="{{ alias.cmd }}"
+{% endfor %}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

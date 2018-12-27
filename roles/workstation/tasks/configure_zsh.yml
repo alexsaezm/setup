@@ -1,10 +1,19 @@
 ---
-- name: 'Ensure Oh my zsh is installed'
-  debug:
-    msg: 'Ensure Oh my zsh is installed'
+- name: 'Ensure ZSH is configured'
+  template:
+    src: 'zsh.j2'
+    dest: '{{ ansible_user_dir }}/.zshrc'
+    owner: '{{ ansible_user_id }}'
+    group: '{{ ansible_user_gid }}'
+    mode: 0644
 
-# - name: 'Ensure ZSH is configured'
-#   template:
-#     src: 'templates/zsh.j2'
-#     dest: '{{ ansible_user_dir }}/.zshrc'
+- name: 'Ensure Oh My ZSH is installed'
+  git:
+    repo: 'https://github.com/robbyrussell/oh-my-zsh.git'
+    dest: '{{ zsh_path }}'
 
+- name: 'Ensure ZSH is the default shell'
+  user:
+    name: '{{ ansible_user_id }}'
+    shell: '/bin/zsh'
+  when: 'ansible_distribution != "Windows"'

@@ -20,7 +20,6 @@ brew_packages:
   - azure-cli
   - cmake
   - dep
-  - fzf
   - go
   - graphviz
   - htop
@@ -59,3 +58,13 @@ cask_packages:
   - virtualbox
   - virtualbox-extension-pac
   - visual-studio-code
+
+ohmyzsh_plugins:
+  - awscli
+  - docker
+  - git
+  - mvn
+  - osx
+  - python
+  - vagrant
+  - web-search

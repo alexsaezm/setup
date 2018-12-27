@@ -1,18 +1,14 @@
 ---
 - name: 'Update Homebrew'
   homebrew:
-    update_homebrew: True
+    update_homebrew: '{{ upgrade_packages }}'
 
 - name: 'Ensure Homebrew packages are installed'
   homebrew:
     name: '{{ brew_packages }}'
-    state: latest
+    state: '{{ state_packages }}'
 
 - name: 'Ensure Homebrew Cask packages are installed'
   homebrew_cask:
     name: '{{ cask_packages }}'
-    state: latest
-
-- name: 'Install useful key bindings and fuzzy completion'
-  shell: $(brew --prefix)/opt/fzf/install --all
-
+    state: '{{ state_packages }}'

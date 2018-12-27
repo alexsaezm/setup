@@ -1,2 +1,14 @@
 ---
 vim_config_path: '{{ ansible_user_dir }}/.vim'
+gopath: '{{ ansible_user_dir }}/Developer'
+pypath2: '{{ ansible_user_dir }}/Library/Python/2.7'
+pypath3: '{{ ansible_user_dir }}/Library/Python/3.7'
+editor: '/usr/bin/vim'
+lang: 'en_US.UTF-8'
+zsh_theme: 'dracula'
+zsh_path: '{{ ansible_user_dir }}/.oh-my-zsh'
+time_format: 'yyyy-mm-dd'
+aliases:
+  - { name: 'cdp', cmd: 'cd {{ ansible_user_dir }}/Developer/src/github.com/alexsaezm/' }
+upgrade_packages: False
+state_packages: "{{ upgrade_packages | ternary ('latest', 'present') }}"
