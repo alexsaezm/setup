@@ -11,8 +11,94 @@ None
 Role Variables
 --------------
 
+Defaults:
+
 ```yaml
-vim_config_path: '{{ ansible_user_dir }}/.vim'
+gopath: '{{ ansible_user_dir }}/Developer'
+pypath2: '{{ ansible_user_dir }}/Library/Python/2.7'
+pypath3: '{{ ansible_user_dir }}/Library/Python/3.7'
+editor: '/usr/bin/vim'
+lang: 'en_US.UTF-8'
+zsh_theme: 'dracula'
+zsh_path: '{{ ansible_user_dir }}/.oh-my-zsh'
+time_format: 'yyyy-mm-dd'
+aliases:
+  - { name: 'cdp', cmd: 'cd {{ ansible_user_dir }}/Developer/src/github.com/alexsaezm/' }
+upgrade_packages: False
+state_packages: "{{ upgrade_packages | ternary ('latest', 'present') }}"
+```
+
+Vars:
+```yaml
+vim_bundle_dir: '{{ vim_config_path }}/bundle'
+vim_autoload_dir: '{{ vim_config_path }}/autoload'
+
+vim_extensions:
+  - { url: "https://github.com/tpope/vim-sensible.git", path: "{{ vim_bundle_dir }}/sensible"}
+  - { url: "https://github.com/dracula/vim.git", path: "{{ vim_bundle_dir }}/dracula"}
+  - { url: "https://github.com/pearofducks/ansible-vim", path: "{{ vim_bundle_dir }}/ansible"}
+  - { url: "https://github.com/hashivim/vim-terraform.git", path: "{{ vim_bundle_dir }}/terraform"}
+  - { url: "https://github.com/hashivim/vim-consul.git", path: "{{ vim_bundle_dir }}/consul"}
+  - { url: "https://github.com/hashivim/vim-nomadproject.git", path: "{{ vim_bundle_dir }}/nomad"}
+  - { url: "https://github.com/hashivim/vim-vaultproject.git", path: "{{ vim_bundle_dir }}/vault"}
+  - { url: "https://github.com/hashivim/vim-vagrant.git", path: "{{ vim_bundle_dir }}/vagrant"}
+  - { url: "https://github.com/hashivim/vim-packer.git", path: "{{ vim_bundle_dir }}/packer"}
+
+brew_packages:
+  - ansible
+  - ansible-lint
+  - awscli
+  - azure-cli
+  - cmake
+  - dep
+  - go
+  - graphviz
+  - htop
+  - irssi
+  - jq
+  - maven
+  - nmap
+  - nomad
+  - packer
+  - pandoc
+  - python
+  - sqlite
+  - terraform
+  - tmux
+  - vault
+  - wget
+
+cask_packages:
+  - 1password
+  - 1password-cli
+  - android-studio
+  - anki
+  - clion
+  - docker
+  - eclipse-ide
+  - goland
+  - google-chrome
+  - insomni
+  - intellij-idea
+  - mactex-no-gui
+  - macvim
+  - pycharm
+  - skype
+  - transmission
+  - vagrant
+  - virtualbox
+  - virtualbox-extension-pac
+  - visual-studio-code
+
+ohmyzsh_plugins:
+  - awscli
+  - docker
+  - git
+  - mvn
+  - osx
+  - python
+  - vagrant
+  - web-search
 ```
 
 Dependencies
