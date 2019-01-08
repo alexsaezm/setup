@@ -52,6 +52,7 @@ cask_packages:
   - intellij-idea
   - mactex-no-gui
   - macvim
+  - particle-dev
   - pycharm
   - skype
   - transmission
