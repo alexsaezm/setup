@@ -38,6 +38,7 @@ brew_packages:
   - travis
   - vault
   - wget
+  - node
 
 cask_packages:
   - 1password

@@ -1,10 +1,10 @@
 ---
-- name: 'Ensure all packages are installed'
-  include_tasks: 'packages_{{ ansible_distribution | lower }}.yml'
+- name: "Ensure all packages are installed"
+  include_tasks: "packages_{{ ansible_distribution | lower }}.yml"
 
-- name: 'Ensure all tools are configured'
-  include_tasks: 'configure_{{ item }}.yml'
+- name: "Ensure all tools are configured"
+  include_tasks: "configure_{{ item }}.yml"
   with_items:
-    - 'vim'
-    - 'tmux'
-    - 'zsh'
+    - "vim"
+    - "tmux"
+    - "zsh"
