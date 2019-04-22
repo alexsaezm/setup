@@ -12,6 +12,8 @@ vim_extensions:
   - { url: "https://github.com/hashivim/vim-vaultproject.git", path: "{{ vim_bundle_dir }}/vault"}
   - { url: "https://github.com/hashivim/vim-vagrant.git", path: "{{ vim_bundle_dir }}/vagrant"}
   - { url: "https://github.com/hashivim/vim-packer.git", path: "{{ vim_bundle_dir }}/packer"}
+  - { url: "https://github.com/fatih/vim-go.git", path: "{{ vim_bundle_dir }}/vim-go"}
+  - { url: "https://github.com/tpope/vim-fugitive.git", path: "{{ vim_bundle_dir }}/vim-fugitive"}
 
 brew_packages:
   - ansible
@@ -27,6 +29,7 @@ brew_packages:
   - jq
   - maven
   - mercurial
+  - molecule
   - nmap
   - nomad
   - packer
@@ -50,6 +53,7 @@ cask_packages:
   - eclipse-ide
   - goland
   - google-chrome
+  - goreleaser
   - insomni
   - intellij-idea
   - mactex-no-gui
@@ -63,7 +67,6 @@ cask_packages:
   - visual-studio-code
 
 ohmyzsh_plugins:
-  - awscli
   - docker
   - git
   - mvn
