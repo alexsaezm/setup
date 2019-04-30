@@ -14,6 +14,7 @@ vim_extensions:
   - { url: "https://github.com/hashivim/vim-packer.git", path: "{{ vim_bundle_dir }}/packer"}
   - { url: "https://github.com/fatih/vim-go.git", path: "{{ vim_bundle_dir }}/vim-go"}
   - { url: "https://github.com/tpope/vim-fugitive.git", path: "{{ vim_bundle_dir }}/vim-fugitive"}
+  - { url: "https://github.com/w0rp/ale.git", path: "{{ vim_bundle_dir }}/ale"}
 
 brew_packages:
   - ansible
