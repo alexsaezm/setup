@@ -3,8 +3,7 @@
 
 ---
 - hosts: all
-  gather_facts: True
+  gather_facts: true
 
   roles:
     - workstation
-
