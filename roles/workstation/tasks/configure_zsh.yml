@@ -16,4 +16,4 @@
   user:
     name: '{{ ansible_user_id }}'
     shell: '/bin/zsh'
-  when: 'ansible_distribution != "Windows"'
+  when: 'ansible_distribution != "Windows" and ansible_distribution != "RedHat"'
