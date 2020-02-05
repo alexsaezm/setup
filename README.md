@@ -7,5 +7,5 @@ This is how I configure my machines
 ## how to use it
 
 ```bash
-$ ./setup
+$ make
 ```

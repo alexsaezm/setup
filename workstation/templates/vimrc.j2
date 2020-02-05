@@ -1,4 +1,17 @@
-execute pathogen#infect()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/bundle')
+
+  Plug 'tpope/vim-sensible'
+  Plug 'dkarter/bullets.vim'
+	Plug 'dracula/vim'
+  Plug 'luochen1990/rainbow'
+
+call plug#end()
 
 set nocompatible                                " Enable vim features
 set encoding=utf-8                              " UTF-8 support
@@ -7,16 +20,19 @@ set tabstop=2
 set expandtab
 set laststatus=2
 set cursorline                                  " Highlight current line
-set lazyredraw                                  " Redraw only when we need to
 set guifont=Monaco:h14                          " Set Monaco with size 14 as font
-set lazyredraw                                  " Redraw the screen when need it
 set guioptions-=r                               " Remove right-hand scroll bar
 set guioptions-=L                               " Remove left-hand scroll bar
 set number relativenumber                       " Turn hybrid line numbers on
 set number                                      " Show line numbers
-set modeline    
+set modeline
 set modelines=2                                 " Load config options in the files (modelines)
-set rtp+=/usr/local/opt/fzf                     " Enable fzf
+set clipboard+=unnamedplus                      " Use linux clipboard
+set ignorecase                                  " Case insensitive searching
+set smartcase                                   " Case-sensitive if expresson contains a capital letter
+set incsearch                                   " Set incremental search, like modern browsers
+set nolazyredraw                                " Don't redraw while executing macros
+set smartindent
 
 " ----------------- Status line ---------------------------------------------
 set statusline=                                 " clear the statusline for when vimrc is reloaded
@@ -40,7 +56,10 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
 filetype plugin indent on                       " Load filetype-specific indent files
+set background=dark
 color dracula                                   " https://draculatheme.com/vim
+let g:airline_theme='dracula'
+let g:rainbow_active=1
 syntax on
 
 " Buffers trick
@@ -64,6 +83,3 @@ autocmd BufRead,BufNewFile *.md hi link Task DraculaGreen
 autocmd BufRead,BufNewFile *.md hi link Bug DraculaYellow
 autocmd BufRead,BufNewFile *.md syn keyword Task TODO
 autocmd BufRead,BufNewFile *.md syn keyword Bug FIXME
-
-" ----------------- Go section ---------------------------------------------
-let g:ale_go_langserver_executable = 'gopls'

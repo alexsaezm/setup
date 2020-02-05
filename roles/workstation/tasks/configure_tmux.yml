@@ -1,8 +1,0 @@
----
-- name: 'Ensure Tmux is configured'
-  template:
-    src: 'tmux.j2'
-    dest: '{{ ansible_user_dir }}/.tmux.conf'
-    owner: '{{ ansible_user_id }}'
-    group: '{{ ansible_user_gid }}'
-    mode: 0644

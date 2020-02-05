@@ -1,9 +1,0 @@
-#!/usr/bin/env ansible-playbook
-# vi: set ft=yaml :
-
----
-- hosts: all
-  gather_facts: true
-
-  roles:
-    - workstation

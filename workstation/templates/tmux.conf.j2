@@ -12,3 +12,6 @@ bind c new-window -c "#{pane_current_path}"
 
 # Avoid rename
 set -g allow-rename off
+
+# if run as "tmux attach", create a session if one does not already exist
+new-session -A -s main
