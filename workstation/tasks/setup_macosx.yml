@@ -1,0 +1,28 @@
+---
+- name: 'Ensure Tmux is installed'
+  homebrew:
+      name: 'tmux'
+
+- name: 'Setup Tmux'
+  template:
+    src: 'tmux.conf.j2'
+    dest: '{{ ansible_user_dir }}/.tmux.conf'
+    owner: '{{ ansible_user_id | string }}'
+    group: '{{ ansible_user_gid | string }}'
+    mode: '0644'
+
+- name: 'Setup Bash'
+  template:
+    src: 'bashrc.j2'
+    dest: '{{ ansible_user_dir }}/.bashrc'
+    owner: '{{ ansible_user_id | string }}'
+    group: '{{ ansible_user_gid | string }}'
+    mode: '0644'
+
+- name: 'Setup Vim'
+  template:
+    src: 'vimrc.j2'
+    dest: '{{ ansible_user_dir }}/.vimrc'
+    owner: '{{ ansible_user_id | string }}'
+    group: '{{ ansible_user_gid | string }}'
+    mode: '0644'

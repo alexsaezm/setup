@@ -1,5 +1,6 @@
 # setup
-This is how I configure my machines
+This is how I configure my machines.
+Currently, Fedora and MacOSX (OSs that I use in my workstations) are configure exactly in the same way.
 
 > This is a work in progress that suits my needs.
 > Use at your own risk.
@@ -9,3 +10,4 @@ This is how I configure my machines
 ```bash
 $ make
 ```
+
