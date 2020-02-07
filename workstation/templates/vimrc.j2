@@ -4,15 +4,29 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" ----------------- Plugins ---------------------------------------------------
+" To update: :PlugInstall
 call plug#begin('~/.vim/bundle')
 
   Plug 'tpope/vim-sensible'
   Plug 'dkarter/bullets.vim'
+  Plug 'pearofducks/ansible-vim'
+  Plug 'hashivim/vim-vagrant'
+  Plug 'fatih/vim-go'
+  Plug 'tpope/vim-fugitive'
 	Plug 'dracula/vim'
   Plug 'luochen1990/rainbow'
 
+  " LSP support
+  Plug 'prabirshrestha/async.vim'
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'mattn/vim-lsp-settings'
+  Plug 'prabirshrestha/asyncomplete.vim'
+  Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 call plug#end()
 
+" ----------------- Global options --------------------------------------------
 set nocompatible                                " Enable vim features
 set encoding=utf-8                              " UTF-8 support
 set shiftwidth=2
@@ -34,7 +48,7 @@ set incsearch                                   " Set incremental search, like m
 set nolazyredraw                                " Don't redraw while executing macros
 set smartindent
 
-" ----------------- Status line ---------------------------------------------
+" ----------------- Status line -----------------------------------------------
 set statusline=                                 " clear the statusline for when vimrc is reloaded
 set statusline+=%-3.3n\                         " buffer number
 set statusline+=%f\                             " file name
@@ -47,7 +61,7 @@ set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\
 set statusline+=%b,0x%-8B\                      " current char
 set statusline+=%-14.(%l,%c%V%)\ %<%P           " offset
 
-" ----------------- Backup section ------------------------------------------
+" ----------------- Backup section --------------------------------------------
 " It moves the vim backups to /tmp instead of the current folder
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -55,6 +69,25 @@ set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
+" ----------------- Undo section ----------------------------------------------
+" Thanks to https://stackoverflow.com/a/22676189
+" Put plugins and dictionaries in this dir (also on Windows)
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undo')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+    set undolevels=1000         " How many undos
+    set undoreload=10000        " number of lines to save for undo
+endif
+
+" ----------------- Theme section ---------------------------------------------
 filetype plugin indent on                       " Load filetype-specific indent files
 set background=dark
 color dracula                                   " https://draculatheme.com/vim
@@ -65,7 +98,7 @@ syntax on
 " Buffers trick
 nnoremap <C-e> :set nomore <Bar> :ls <Bar> :set more <CR>:b<Space>
 
-" ----------------- Movement section ----------------------------------------
+" ----------------- Movement section ------------------------------------------
 " unset the arrows to avoid using an inpure workflow :)
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -76,8 +109,8 @@ set path+=./**
 " Type jj quickly to esc
 inoremap jj <Esc>
 
-" ----------------- Markdown section ----------------------------------------
-autocmd BufRead,BufNewFile *.md setlocal spell spelllang=es
+" ----------------- Markdown section ------------------------------------------
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en
 autocmd BufRead,BufNewFile *.md setlocal tw=79
 autocmd BufRead,BufNewFile *.md hi link Task DraculaGreen
 autocmd BufRead,BufNewFile *.md hi link Bug DraculaYellow

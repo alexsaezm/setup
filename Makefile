@@ -1,9 +1,6 @@
 .DEFAULT_GOAL=setup
-THIS_FILE := $(lastword $(MAKEFILE_LIST))
 
-setup:
-	@$(MAKE) -f $(THIS_FILE) bootstrap
-	@$(MAKE) -f $(THIS_FILE) workstation
+setup: bootstrap workstation
 	
 bootstrap:
 	@bash ./script/bootstrap.sh
