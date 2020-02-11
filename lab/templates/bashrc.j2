@@ -1,0 +1,12 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+export GO111MODULE=off
+export GOPATH="{{ gopath }}"
+export EDITOR="{{ editor }}"
+export PATH="$GOPATH/bin:$PATH"
+export PS1="{{ prompt }}"

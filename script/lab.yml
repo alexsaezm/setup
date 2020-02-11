@@ -1,0 +1,8 @@
+---
+- hosts: Lab
+  gather_facts: true
+
+  tasks:
+    - include_role:
+        name: 'lab'
+        tasks_from: 'setup_{{ ansible_distribution | lower }}'
