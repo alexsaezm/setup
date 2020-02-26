@@ -110,6 +110,9 @@ set path+=./**
 " Type jj quickly to esc
 inoremap jj <Esc>
 
+" ----------------- LSP section -----------------------------------------------
+let g:lsp_diagnostics_echo_cursor = 1
+
 " ----------------- Markdown section ------------------------------------------
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en
 autocmd BufRead,BufNewFile *.md setlocal tw=79
