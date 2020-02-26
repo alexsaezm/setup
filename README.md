@@ -7,6 +7,8 @@ Currently, Fedora and MacOSX (OSs that I use in my workstations) are configure e
 
 ## how to use it
 
+> If you have `NOPASSWD:ALL` in your `/etc/sudoers` file, the better.
+
 ```bash
 $ make
 ```

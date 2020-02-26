@@ -1,9 +1,9 @@
 ---
 - name: 'Gather os specific variables'
-  include_vars: "{{ ansible_distribution | lower }}.yml"
+  include_vars: '{{ ansible_distribution | lower }}.yml'
 
 - name: 'Ensure software is installed'
   package:
     name: '{{ packages }}'
     state: present
-  become: true
+  become: '{{ package_become }}'
