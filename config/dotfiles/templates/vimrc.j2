@@ -16,6 +16,10 @@ call plug#begin('~/.vim/bundle')
   Plug 'tpope/vim-fugitive'
 	Plug 'dracula/vim'
   Plug 'luochen1990/rainbow'
+  Plug 'junegunn/limelight.vim'
+  Plug 'junegunn/goyo.vim'
+  Plug 'itchyny/lightline.vim'
+  Plug 'mengelbrecht/lightline-bufferline'
 
   " LSP support
   Plug 'prabirshrestha/async.vim'
@@ -47,20 +51,17 @@ set smartcase                                   " Case-sensitive if expresson co
 set incsearch                                   " Set incremental search, like modern browsers
 set nolazyredraw                                " Don't redraw while executing macros
 set smartindent
+set showtabline=2                               " This forces the tabline to always show
 
 " ----------------- Status line -----------------------------------------------
-set statusline=                                 " clear the statusline for when vimrc is reloaded
-set statusline+=%-3.3n\                         " buffer number
-set statusline+=%f\                             " file name
-set statusline+=%h%m%r%w                        " flags
-set statusline+=[%{strlen(&ft)?&ft:'none'},     " filetype
-set statusline+=%{strlen(&fenc)?&fenc:&enc},    " encoding
-set statusline+=%{&fileformat}]                 " file format
-set statusline+=%=                              " right align
-set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\
-set statusline+=%b,0x%-8B\                      " current char
-set statusline+=%-14.(%l,%c%V%)\ %<%P           " offset
+let g:lightline#bufferline#show_number  = 1
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#unnamed      = '[No Name]'
 
+let g:lightline                  = {}
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
 " ----------------- Backup section --------------------------------------------
 " It moves the vim backups to /tmp instead of the current folder
 set backup
