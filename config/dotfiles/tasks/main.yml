@@ -22,3 +22,17 @@
     owner: '{{ ansible_user_id | string }}'
     group: '{{ ansible_user_gid | string }}'
     mode: '0644'
+
+- name: 'Configure Plug in NeoVim'
+  get_url:
+    url: 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    dest: '{{ ansible_user_dir }}/.local/share/nvim/site/autoload/plug.vim'
+    mode: '0644'
+
+- name: 'Setup NeoVim'
+  template:
+    src: 'vimrc.j2'
+    dest: '{{ ansible_user_dir }}/.config/nvim/init.vim'
+    owner: '{{ ansible_user_id | string }}'
+    group: '{{ ansible_user_gid | string }}'
+    mode: '0644'

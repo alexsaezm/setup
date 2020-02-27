@@ -9,6 +9,8 @@ packages:
   - htop
   - ncurses
   - neovim
+  - nmap
   - pandoc
   - tmux
   - wget
+
