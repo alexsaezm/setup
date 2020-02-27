@@ -9,7 +9,7 @@ endif
 call plug#begin('{{ editor.bundle }}')
 
   {% for package in editor.packages %}
-  Plug '{{ package }}'
+  Plug {{ package }}
   {% endfor %}
 
 call plug#end()

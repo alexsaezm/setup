@@ -3,41 +3,40 @@ vim:
   bundle: '{{ ansible_user_dir}}/.vim/bundle'
   config: '{{ ansible_user_dir }}/.vim'
   packages:
-    - 'dkarter/bullets.vim'
-    - 'dracula/vim'
-    - 'fatih/vim-go'
-    - 'hashivim/vim-vagrant'
-    - 'itchyny/lightline.vim'
-    - 'junegunn/goyo.vim'
-    - 'junegunn/limelight.vim'
-    - 'luochen1990/rainbow'
-    - 'mattn/vim-lsp-settings'
-    - 'mengelbrecht/lightline-bufferline'
-    - 'pearofducks/ansible-vim'
-    - 'prabirshrestha/async.vim'
-    - 'prabirshrestha/asyncomplete-lsp.vim'
-    - 'prabirshrestha/asyncomplete.vim'
-    - 'prabirshrestha/vim-lsp'
-    - 'tpope/vim-fugitive'
-    - 'tpope/vim-sensible'
+    - "'dkarter/bullets.vim'"
+    - "'dracula/vim'"
+    - "'fatih/vim-go', { 'tag': 'v1.22' }"
+    - "'hashivim/vim-vagrant'"
+    - "'itchyny/lightline.vim'"
+    - "'junegunn/goyo.vim'"
+    - "'junegunn/limelight.vim'"
+    - "'luochen1990/rainbow'"
+    - "'mattn/vim-lsp-settings'"
+    - "'mengelbrecht/lightline-bufferline'"
+    - "'pearofducks/ansible-vim'"
+    - "'prabirshrestha/async.vim'"
+    - "'prabirshrestha/asyncomplete-lsp.vim'"
+    - "'prabirshrestha/asyncomplete.vim'"
+    - "'prabirshrestha/vim-lsp'"
+    - "'tpope/vim-fugitive'"
+    - "'tpope/vim-sensible'"
 neovim:
   autoload: '{{ ansible_user_dir }}/.local/share/nvim/site/autoload'
   bundle: '{{ ansible_user_dir}}/.local/share/nvim/plugged'
   config: '{{ ansible_user_dir }}/.config/nvim/'
   packages:
-    - 'dkarter/bullets.vim'
-    - 'dracula/vim'
-    - 'fatih/vim-go'
-    - 'hashivim/vim-vagrant'
-    - 'itchyny/lightline.vim'
-    - 'junegunn/goyo.vim'
-    - 'junegunn/limelight.vim'
-    - 'luochen1990/rainbow'
-    - 'mengelbrecht/lightline-bufferline'
-    - 'neovim/nvim-lsp'
-    - 'pearofducks/ansible-vim'
-    - 'tpope/vim-fugitive'
-    - 'tpope/vim-sensible'
+    - "'dkarter/bullets.vim'"
+    - "'dracula/vim'"
+    - "'fatih/vim-go', { 'tag': 'v1.22' }"
+    - "'hashivim/vim-vagrant'"
+    - "'itchyny/lightline.vim'"
+    - "'junegunn/goyo.vim'"
+    - "'junegunn/limelight.vim'"
+    - "'luochen1990/rainbow'"
+    - "'mengelbrecht/lightline-bufferline'"
+    - "'pearofducks/ansible-vim'"
+    - "'tpope/vim-fugitive'"
+    - "'tpope/vim-sensible'"
 gopath: '{{ ansible_user_dir }}/Developer'
 editor: '/usr/bin/vim'
 prompt: '\[\e[32m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] \[\e[34m\]\W\[\e[m\] \[\e[33m\]\\$\[\e[m\] '
