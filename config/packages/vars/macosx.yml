@@ -1,4 +1,14 @@
 ---
 package_become: False
 packages:
+  - autoconf
+  - automake
+  - cmake
+  - gdb
+  - gettext
+  - htop
+  - ncurses
+  - neovim
+  - pandoc
   - tmux
+  - wget
