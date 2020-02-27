@@ -1,32 +1,16 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('{{ editor.autoload }}/plug.vim'))
+  silent !curl -fLo {{ editor.autoload }}/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " ----------------- Plugins ---------------------------------------------------
 " To update: :PlugInstall
-call plug#begin('~/.vim/bundle')
+call plug#begin('{{ editor.bundle }}')
 
-  Plug 'tpope/vim-sensible'
-  Plug 'dkarter/bullets.vim'
-  Plug 'pearofducks/ansible-vim'
-  Plug 'hashivim/vim-vagrant'
-  Plug 'fatih/vim-go'
-  Plug 'tpope/vim-fugitive'
-	Plug 'dracula/vim'
-  Plug 'luochen1990/rainbow'
-  Plug 'junegunn/limelight.vim'
-  Plug 'junegunn/goyo.vim'
-  Plug 'itchyny/lightline.vim'
-  Plug 'mengelbrecht/lightline-bufferline'
-
-  " LSP support
-  Plug 'prabirshrestha/async.vim'
-  Plug 'prabirshrestha/vim-lsp'
-  Plug 'mattn/vim-lsp-settings'
-  Plug 'prabirshrestha/asyncomplete.vim'
-  Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  {% for package in editor.packages %}
+  Plug '{{ package }}'
+  {% endfor %}
 
 call plug#end()
 

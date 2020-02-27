@@ -22,6 +22,8 @@
     owner: '{{ ansible_user_id | string }}'
     group: '{{ ansible_user_gid | string }}'
     mode: '0644'
+  vars:
+    - editor: '{{ vim }}'
 
 - name: 'Configure Plug in NeoVim'
   get_url:
@@ -36,3 +38,5 @@
     owner: '{{ ansible_user_id | string }}'
     group: '{{ ansible_user_gid | string }}'
     mode: '0644'
+  vars:
+    - editor: '{{ neovim }}'
