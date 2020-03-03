@@ -2,6 +2,9 @@
 - hosts: Workstation
   gather_facts: true
 
+  vars:
+    - editor: nvim
+
   roles:
     - config/packages
     - config/dotfiles
