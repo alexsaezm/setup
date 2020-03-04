@@ -1,8 +1,16 @@
 ---
-- name: 'Setup shell'
+- name: 'Setup Bash'
   template:
     src: 'bashrc.j2'
     dest: '{{ ansible_user_dir }}/.bashrc'
+    owner: '{{ ansible_user_id | string }}'
+    group: '{{ ansible_user_gid | string }}'
+    mode: '0644'
+
+- name: 'Setup ZSH'
+  template:
+    src: 'zshrc.j2'
+    dest: '{{ ansible_user_dir }}/.zshrc'
     owner: '{{ ansible_user_id | string }}'
     group: '{{ ansible_user_gid | string }}'
     mode: '0644'
