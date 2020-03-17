@@ -19,6 +19,7 @@ vim:
     - "'prabirshrestha/asyncomplete.vim'"
     - "'prabirshrestha/vim-lsp'"
     - "'tpope/vim-fugitive'"
+    - "'tpope/vim-rsi'"
     - "'tpope/vim-sensible'"
     - "'tpope/vim-vinegar'"
 neovim:
@@ -37,6 +38,7 @@ neovim:
     - "'mengelbrecht/lightline-bufferline'"
     - "'pearofducks/ansible-vim'"
     - "'tpope/vim-fugitive'"
+    - "'tpope/vim-rsi'"
     - "'tpope/vim-sensible'"
     - "'tpope/vim-vinegar'"
 gopath: '{{ ansible_user_dir }}/Developer'
