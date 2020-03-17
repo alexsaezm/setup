@@ -92,14 +92,25 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+" classic tab/shift+tab movement
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 set path+=./**
+
 " Type jj quickly to esc
 inoremap jj <Esc>
 
-nmap <leader>ne :NERDTree<cr>
+" built-in file explorer
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
 
 " ----------------- LSP section -----------------------------------------------
 let g:lsp_diagnostics_echo_cursor = 1
