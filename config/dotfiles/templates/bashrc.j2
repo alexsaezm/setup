@@ -10,6 +10,7 @@ export GOPATH="{{ gopath }}"
 export EDITOR="{{ editor }}"
 export PATH="$GOPATH/bin:$PATH"
 export PS1="{{ prompt }}"
+export GPG_TTY=$(tty)
 
 {% if editor == "nvim" %}
 alias vim="nvim"
