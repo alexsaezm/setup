@@ -1,0 +1,14 @@
+---
+packages:
+  - tmux
+  - git
+  - autoconf
+  - wget
+  - svn
+  - tar
+  - golang-docs
+  - golang-bin
+  - golang-src
+  - golang-tests
+  - golang-misc
+  - golang-race
