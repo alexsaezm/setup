@@ -3,14 +3,11 @@ vim:
   bundle: '{{ ansible_user_dir}}/.vim/bundle'
   config: '{{ ansible_user_dir }}/.vim'
   packages:
+    - "'arzg/vim-colors-xcode'"
     - "'dkarter/bullets.vim'"
-    - "'dracula/vim'"
     - "'fatih/vim-go', { 'tag': 'v1.22' }"
     - "'hashivim/vim-vagrant'"
     - "'itchyny/lightline.vim'"
-    - "'junegunn/goyo.vim'"
-    - "'junegunn/limelight.vim'"
-    - "'luochen1990/rainbow'"
     - "'mattn/vim-lsp-settings'"
     - "'mengelbrecht/lightline-bufferline'"
     - "'pearofducks/ansible-vim'"
@@ -27,14 +24,11 @@ neovim:
   bundle: '{{ ansible_user_dir}}/.local/share/nvim/plugged'
   config: '{{ ansible_user_dir }}/.config/nvim/'
   packages:
+    - "'arzg/vim-colors-xcode'"
     - "'dkarter/bullets.vim'"
-    - "'dracula/vim'"
     - "'fatih/vim-go', { 'tag': 'v1.22' }"
     - "'hashivim/vim-vagrant'"
     - "'itchyny/lightline.vim'"
-    - "'junegunn/goyo.vim'"
-    - "'junegunn/limelight.vim'"
-    - "'luochen1990/rainbow'"
     - "'mengelbrecht/lightline-bufferline'"
     - "'pearofducks/ansible-vim'"
     - "'tpope/vim-fugitive'"
@@ -43,4 +37,4 @@ neovim:
     - "'tpope/vim-vinegar'"
 gopath: '{{ ansible_user_dir }}/Developer'
 editor: 'vim'
-prompt: '\[\e[32m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] \[\e[34m\]\W\[\e[m\] \[\e[33m\]\\$\[\e[m\] '
+prompt: '\u@\h \W \\$ '

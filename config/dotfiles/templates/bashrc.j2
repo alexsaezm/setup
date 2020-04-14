@@ -5,7 +5,7 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-export GO111MODULE=off
+export GO111MODULE=auto
 export GOPATH="{{ gopath }}"
 export EDITOR="{{ editor }}"
 export PATH="$GOPATH/bin:$PATH"
