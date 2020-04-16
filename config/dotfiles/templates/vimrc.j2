@@ -41,10 +41,17 @@ let g:lightline#bufferline#show_number  = 1
 let g:lightline#bufferline#shorten_path = 0
 let g:lightline#bufferline#unnamed      = '[No Name]'
 
-let g:lightline                  = {}
-let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
 " ----------------- Backup section --------------------------------------------
 " It moves the vim backups to /tmp instead of the current folder
 set backup
@@ -73,7 +80,7 @@ endif
 
 " ----------------- Theme section ---------------------------------------------
 filetype plugin indent on                       " Load filetype-specific indent files
-color xcodelight
+color gruvbox
 
 syntax on
 
@@ -88,8 +95,8 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 " classic tab/shift+tab movement
-nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
-nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:tabNext<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:tabprevious<CR>
 
 set path+=./**
 

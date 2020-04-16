@@ -3,13 +3,13 @@ vim:
   bundle: '{{ ansible_user_dir}}/.vim/bundle'
   config: '{{ ansible_user_dir }}/.vim'
   packages:
-    - "'arzg/vim-colors-xcode'"
     - "'dkarter/bullets.vim'"
     - "'fatih/vim-go', { 'tag': 'v1.22' }"
     - "'hashivim/vim-vagrant'"
     - "'itchyny/lightline.vim'"
     - "'mattn/vim-lsp-settings'"
     - "'mengelbrecht/lightline-bufferline'"
+    - "'morhetz/gruvbox'"
     - "'pearofducks/ansible-vim'"
     - "'prabirshrestha/async.vim'"
     - "'prabirshrestha/asyncomplete-lsp.vim'"
@@ -24,12 +24,12 @@ neovim:
   bundle: '{{ ansible_user_dir}}/.local/share/nvim/plugged'
   config: '{{ ansible_user_dir }}/.config/nvim/'
   packages:
-    - "'arzg/vim-colors-xcode'"
     - "'dkarter/bullets.vim'"
     - "'fatih/vim-go', { 'tag': 'v1.22' }"
     - "'hashivim/vim-vagrant'"
     - "'itchyny/lightline.vim'"
     - "'mengelbrecht/lightline-bufferline'"
+    - "'morhetz/gruvbox'"
     - "'pearofducks/ansible-vim'"
     - "'tpope/vim-fugitive'"
     - "'tpope/vim-rsi'"
