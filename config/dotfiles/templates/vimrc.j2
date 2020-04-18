@@ -124,3 +124,7 @@ autocmd BufRead,BufNewFile *.md hi link Task DraculaGreen
 autocmd BufRead,BufNewFile *.md hi link Bug DraculaYellow
 autocmd BufRead,BufNewFile *.md syn keyword Task TODO
 autocmd BufRead,BufNewFile *.md syn keyword Bug FIXME
+
+" ----------------- VimWiki section -------------------------------------------
+let g:vimwiki_list = [{'path': '~/Documents/Notes/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]

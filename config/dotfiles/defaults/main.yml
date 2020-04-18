@@ -19,6 +19,7 @@ vim:
     - "'tpope/vim-rsi'"
     - "'tpope/vim-sensible'"
     - "'tpope/vim-vinegar'"
+    - "'vimwiki/vimwiki'"
 neovim:
   autoload: '{{ ansible_user_dir }}/.local/share/nvim/site/autoload'
   bundle: '{{ ansible_user_dir}}/.local/share/nvim/plugged'
@@ -35,6 +36,7 @@ neovim:
     - "'tpope/vim-rsi'"
     - "'tpope/vim-sensible'"
     - "'tpope/vim-vinegar'"
+    - "'vimwiki/vimwiki'"
 gopath: '{{ ansible_user_dir }}/Developer'
 editor: 'vim'
 prompt: '\u@\h \W \\$ '
