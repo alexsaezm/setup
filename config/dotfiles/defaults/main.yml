@@ -4,7 +4,7 @@ vim:
   config: '{{ ansible_user_dir }}/.vim'
   packages:
     - "'dkarter/bullets.vim'"
-    - "'fatih/vim-go', { 'tag': 'v1.22' }"
+    - "'fatih/vim-go', { 'tag': 'v1.22', 'do': ':GoInstallBinaries' }"
     - "'hashivim/vim-vagrant'"
     - "'itchyny/lightline.vim'"
     - "'mattn/vim-lsp-settings'"
