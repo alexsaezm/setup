@@ -14,3 +14,6 @@ packages:
   - tmux
   - wget
 
+casks:
+  - 1password-cli
+

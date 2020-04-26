@@ -8,6 +8,12 @@
     state: latest
   become: '{{ package_become }}'
 
+- name: 'Install Cask'
+  homebrew_cask:
+    name: '{{ casks }}'
+    state: latest
+  when: casks is defined
+
 - name: 'Create directories'
   file:
     path: '{{ item }}'
