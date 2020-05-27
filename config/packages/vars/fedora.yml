@@ -3,3 +3,4 @@ packages:
   - tmux
   - git
   - neovim
+  - fzf
