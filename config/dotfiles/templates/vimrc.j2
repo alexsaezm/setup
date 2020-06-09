@@ -44,6 +44,11 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+nnoremap <leader>h <C-W>h
+nnoremap <leader>j <C-W>j
+nnoremap <leader>k <C-W>k
+nnoremap <leader>l <C-W>l
+
 " classic tab/shift+tab movement
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:tabNext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:tabprevious<CR>
@@ -75,12 +80,16 @@ let g:asyncrun_runner.tmux = function('s:run_tmux')
 " Run make async on a vertical quickfix buffer
 nnoremap <leader>m :AsyncRun -mode=term -pos=tmux make<CR>
 
-" List buffers
-nnoremap <leader>b :set nomore <bar> :ls <bar> :set more<CR>:b 
-nnoremap <leader>h <C-W>h
-nnoremap <leader>j <C-W>j
-nnoremap <leader>k <C-W>k
-nnoremap <leader>l <C-W>l
+" Buffers trick
+nnoremap <leader>b :set nomore <bar> :ls <Bar> :set more <CR>:b<Space>
+
+function! s:run_search(text)
+  call vimgrepadd text
+endfunction
+
+" Search for a term in all of the opened buffers
+command -nargs=* Vsearch vimgrep /\v<args>/g **/* | copen
+nnoremap <leader>s :Vsearch<Space>
 
 " ----------------- Status line -----------------------------------------------
 let g:lightline#bufferline#show_number  = 1
@@ -130,10 +139,6 @@ set bg=dark
 color gruvbox
 
 syntax on
-
-" Buffers trick
-nnoremap <C-e> :set nomore <Bar> :ls <Bar> :set more <CR>:b<Space>
-
 
 " ----------------- LSP section -----------------------------------------------
 let g:lsp_diagnostics_echo_cursor = 1
